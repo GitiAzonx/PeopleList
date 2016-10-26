@@ -31,11 +31,19 @@
                     <h:outputText value="#{person.lastName}" />
                 </h:column>
                 <h:column>
+                    <f:facet name="header"><h:outputText value="#{lib['person.married']}" /></f:facet>
+                    <h:outputText value="#{String.valueOf(person.married)}" />
+                </h:column>
+                <h:column>
                     <f:facet name="header"><h:outputText value="#{lib['person.birthDate']}" /></f:facet>
-                    <h:outputText value="#{person.birthDate}" />
+                    <h:outputText value="#{person.birthDate}">
+                        <f:convertDateTime pattern="dd.MM.yyyy" />
+                    </h:outputText>
                 </h:column>               
-            </h:dataTable>            
+            </h:dataTable>    
+            <h:link outcome="addPerson.xhtml" value="#{lib['button.Add']}"/>
         </h:form>
+
         
     </h:body>
 </html>
